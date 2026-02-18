@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://iuua75j4vcge"]
+
+[ext_resource type="Script" uid="uid://cwcecm06a0yca" path="res://plants/plantResource.gd" id="1_0qvjp"]
+[ext_resource type="PackedScene" uid="uid://rth835qkt8jg" path="res://plants/waterPot/water_pot.tscn" id="1_kdcng"]
+
+[resource]
+script = ExtResource("1_0qvjp")
+name = "Water Pot"
+sunCost = 25
+scene = ExtResource("1_kdcng")
+earthPlant = true
+tileOverrider = true
+newTileType = "Water"
+metadata/_custom_type_script = "uid://cwcecm06a0yca"

@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dljgvit78c84u"]
+
+[ext_resource type="Script" uid="uid://cbg38fxbsbrd" path="res://plants/Plant.gd" id="1_k18t3"]
+[ext_resource type="Texture2D" uid="uid://bsxpcbdfjwm46" path="res://assets/Plants/Peashooter/peashooter.png" id="2_oljvc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_oljvc"]
+
+[sub_resource type="Gradient" id="Gradient_oljvc"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.1764706)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lnceg"]
+gradient = SubResource("Gradient_oljvc")
+
+[sub_resource type="Animation" id="Animation_oljvc"]
+resource_name = "Idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.2666667, 1.5),
+"transitions": PackedFloat32Array(3.4822013, -2, 1, 3.4822013),
+"update": 0,
+"values": [Vector2(3.6, 3.6), Vector2(4, 3), Vector2(3.728, 3.408), Vector2(3.6, 3.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.2666667, 1.5),
+"transitions": PackedFloat32Array(3.4822013, -2, 1, 3.4822013),
+"update": 0,
+"values": [Vector2(-0.40000153, -9), Vector2(-0.4, 4.795), Vector2(-0.40000105, -4.585602), Vector2(-0.40000153, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_nm25g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.6, 3.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.40000153, -9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nm25g"]
+_data = {
+&"Idle": SubResource("Animation_oljvc"),
+&"RESET": SubResource("Animation_nm25g")
+}
+
+[node name="Peashooter" type="Node2D" unique_id=1040740918 node_paths=PackedStringArray("idleAnimation")]
+script = ExtResource("1_k18t3")
+idleAnimation = NodePath("AnimationPlayer")
+metadata/_custom_type_script = "uid://cbg38fxbsbrd"
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=780198435]
+position = Vector2(-4.4000015, 64)
+scale = Vector2(102.866234, 35.500004)
+mesh = SubResource("SphereMesh_oljvc")
+texture = SubResource("GradientTexture1D_lnceg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359278752]
+position = Vector2(-0.40000153, -9)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_oljvc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1553092807]
+libraries/ = SubResource("AnimationLibrary_nm25g")

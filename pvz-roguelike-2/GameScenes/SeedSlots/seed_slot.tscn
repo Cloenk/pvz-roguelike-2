@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://8my1nby50qrx"]
+
+[ext_resource type="Script" uid="uid://kptbv0f0wsg5" path="res://GameScenes/SeedSlots/seed_slot.gd" id="1_ebwks"]
+
+[node name="SeedSlot" type="Node2D" unique_id=1125373270]
+script = ExtResource("1_ebwks")
+
+[node name="Button" type="Button" parent="." unique_id=159248141]
+offset_right = 237.0
+offset_bottom = 79.0
+focus_mode = 0
+
+[node name="NameLabel" type="Label" parent="." unique_id=900592168]
+offset_right = 236.0
+offset_bottom = 78.0
+text = "name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

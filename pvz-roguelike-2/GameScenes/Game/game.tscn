@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://61031j58cigj"]
+
+[ext_resource type="Script" uid="uid://di47pp1vg2sf1" path="res://GameScenes/Game/lawn.gd" id="1_cq1s6"]
+[ext_resource type="Script" uid="uid://cxxbi3pfyr6hn" path="res://GameScenes/Game/game.gd" id="1_kdsp7"]
+[ext_resource type="PackedScene" uid="uid://8my1nby50qrx" path="res://GameScenes/SeedSlots/seed_slot.tscn" id="3_vf0vs"]
+[ext_resource type="Texture2D" uid="uid://cxr0hacwmmil4" path="res://assets/Lawn/Lawn.png" id="4_d43ru"]
+[ext_resource type="Texture2D" uid="uid://cry5x60wdcfi6" path="res://assets/Lawn/Tiles.png" id="4_l8dou"]
+[ext_resource type="Resource" uid="uid://b5vfkjqtsqtdt" path="res://plants/peashooter/peaShooter.tres" id="4_t8b58"]
+[ext_resource type="Resource" uid="uid://clh076us1surx" path="res://plants/flowerPot/flowerPot.tres" id="6_teeg0"]
+[ext_resource type="Resource" uid="uid://ew40ae3unlp5" path="res://plants/lilypad/lilypad.tres" id="7_teeg0"]
+[ext_resource type="Resource" uid="uid://iuua75j4vcge" path="res://plants/waterPot/WaterPot.tres" id="8_fm1gp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d43ru"]
+texture = ExtResource("4_l8dou")
+texture_region_size = Vector2i(21, 24)
+0:0/0 = 0
+0:0/0/custom_data_0 = "Grass"
+1:0/0 = 0
+1:0/0/custom_data_0 = "Grass"
+2:0/0 = 0
+2:0/0/custom_data_0 = "Earth"
+3:0/0 = 0
+3:0/0/custom_data_0 = "Water"
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l8dou"]
+tile_size = Vector2i(21, 24)
+custom_data_layer_0/name = "TileType"
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_d43ru")
+
+[node name="Game" type="Node2D" unique_id=1416348256]
+script = ExtResource("1_kdsp7")
+
+[node name="Lawn" type="Node2D" parent="." unique_id=1248983122]
+z_index = -2
+script = ExtResource("1_cq1s6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lawn" unique_id=1094256189]
+position = Vector2(1260, 540)
+scale = Vector2(7.2, 7.2)
+texture = ExtResource("4_d43ru")
+
+[node name="TileMap" type="TileMap" parent="Lawn" unique_id=951313880]
+position = Vector2(424.82, 158.385)
+scale = Vector2(7.2, 7.2)
+tile_set = SubResource("TileSet_l8dou")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 0, 131072, 131072, 0, 196608, 0, 0, 262144, 65536, 0, 262145, 0, 0, 262146, 65536, 0, 262147, 0, 0, 262148, 65536, 0, 262149, 0, 0, 262150, 65536, 0, 262151, 0, 0, 262152, 65536, 0, 196616, 0, 0, 131080, 131072, 0, 65544, 0, 0, 8, 65536, 0, 7, 0, 0, 6, 65536, 0, 5, 0, 0, 4, 65536, 0, 3, 0, 0, 2, 65536, 0, 1, 0, 0, 65537, 65536, 0, 131073, 131072, 0, 196609, 65536, 0, 196610, 196608, 0, 196611, 196608, 0, 196612, 196608, 0, 196613, 196608, 0, 196614, 196608, 0, 196615, 65536, 0, 131079, 131072, 0, 65543, 65536, 0, 65542, 196608, 0, 65541, 196608, 0, 65540, 196608, 0, 65539, 196608, 0, 65538, 196608, 0, 131074, 131072, 0, 131075, 131072, 0, 131076, 131072, 0, 131077, 131072, 0, 131078, 131072, 0, 196607, 262144, 0, 262143, 262144, 0, 327679, 262144, 0, 393215, 262144, 0, 393214, 262144, 0, 393213, 262144, 0, 327677, 262144, 0, 262141, 262144, 0, 196605, 262144, 0, 131069, 262144, 0, 65533, 262144, 0, -3, 262144, 0, -2, 262144, 0, 65534, 262144, 0, 131070, 262144, 0, 196606, 262144, 0, 262142, 262144, 0, 327678, 262144, 0, 327680, 262144, 0, 327681, 262144, 0, 327682, 262144, 0, 327683, 262144, 0, 327684, 262144, 0, 327685, 262144, 0, 327686, 262144, 0, 327687, 262144, 0, 327688, 262144, 0, 327689, 262144, 0, 262153, 262144, 0, 196617, 262144, 0, 131081, 262144, 0, 65545, 262144, 0, 9, 262144, 0, -65527, 262144, 0, -65528, 262144, 0, -65529, 262144, 0, -65530, 262144, 0, -65531, 262144, 0, -65532, 262144, 0, -65533, 262144, 0, -65534, 262144, 0, -65535, 262144, 0, -65536, 262144, 0, -1, 262144, 0, -65526, 262144, 0, -65525, 262144, 0, -65524, 262144, 0, -65523, 262144, 0, 13, 262144, 0, 65549, 262144, 0, 131085, 262144, 0, 196621, 262144, 0, 262157, 262144, 0, 327693, 262144, 0, 327692, 262144, 0, 327691, 262144, 0, 327690, 262144, 0, 262154, 262144, 0, 196618, 262144, 0, 131082, 262144, 0, 65546, 262144, 0, 10, 262144, 0, 11, 262144, 0, 12, 262144, 0, 65548, 262144, 0, 131084, 262144, 0, 196620, 262144, 0, 262156, 262144, 0, 262155, 262144, 0, 196619, 262144, 0, 131083, 262144, 0, 65547, 262144, 0, 65535, 262144, 0, 131071, 262144, 0)
+
+[node name="SeedSlots" type="Node2D" parent="." unique_id=48362218]
+
+[node name="SeedSlot" parent="SeedSlots" unique_id=1125373270 instance=ExtResource("3_vf0vs")]
+position = Vector2(176, 195)
+plantResource = ExtResource("4_t8b58")
+
+[node name="SeedSlot2" parent="SeedSlots" unique_id=1276556706 instance=ExtResource("3_vf0vs")]
+position = Vector2(176, 284)
+plantResource = ExtResource("6_teeg0")
+
+[node name="SeedSlot3" parent="SeedSlots" unique_id=1579812267 instance=ExtResource("3_vf0vs")]
+position = Vector2(176, 373)
+plantResource = ExtResource("7_teeg0")
+
+[node name="SeedSlot4" parent="SeedSlots" unique_id=1811703520 instance=ExtResource("3_vf0vs")]
+position = Vector2(176, 468)
+plantResource = ExtResource("8_fm1gp")
+
+[node name="Ysort" type="Node2D" parent="." unique_id=1668961523]
+y_sort_enabled = true
+
+[node name="Plants" type="Node2D" parent="Ysort" unique_id=867407033]
+y_sort_enabled = true

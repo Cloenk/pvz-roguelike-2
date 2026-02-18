@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://rth835qkt8jg"]
+
+[ext_resource type="Script" uid="uid://cbg38fxbsbrd" path="res://plants/Plant.gd" id="1_l604u"]
+[ext_resource type="Texture2D" uid="uid://b0uptyj8w2qn7" path="res://assets/Plants/waterPot/waterPot.png" id="2_5t7ck"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_5t7ck"]
+
+[sub_resource type="Gradient" id="Gradient_nm25g"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.1764706)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2fr6g"]
+gradient = SubResource("Gradient_nm25g")
+
+[sub_resource type="Animation" id="Animation_n462a"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(3.4822013, -2, 3.4822013),
+"update": 0,
+"values": [Vector2(3.6, 3.6), Vector2(4, 3), Vector2(3.6, 3.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(3.4822013, -2, 3.4822013),
+"update": 0,
+"values": [Vector2(-0.4, -30), Vector2(-0.4, -11.285), Vector2(-0.4, -30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5t7ck"]
+_data = {
+&"Idle": SubResource("Animation_n462a")
+}
+
+[node name="WaterPot" type="Node2D" unique_id=1911610841 node_paths=PackedStringArray("idleAnimation")]
+z_index = -1
+script = ExtResource("1_l604u")
+idleAnimation = NodePath("AnimationPlayer")
+metadata/_custom_type_script = "uid://cbg38fxbsbrd"
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=587385228]
+position = Vector2(0, 65)
+scale = Vector2(91.47847, 35.500004)
+mesh = SubResource("SphereMesh_5t7ck")
+texture = SubResource("GradientTexture1D_2fr6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=141168902]
+position = Vector2(-0.4, -30)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_5t7ck")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=590566017]
+libraries/ = SubResource("AnimationLibrary_5t7ck")

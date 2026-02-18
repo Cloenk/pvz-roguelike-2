@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://ew40ae3unlp5"]
+
+[ext_resource type="PackedScene" uid="uid://ds8lhyxh1cna7" path="res://plants/lilypad/lily_pad.tscn" id="1_2nv18"]
+[ext_resource type="Script" uid="uid://cwcecm06a0yca" path="res://plants/plantResource.gd" id="2_dnith"]
+
+[resource]
+script = ExtResource("2_dnith")
+name = "lilypad"
+sunCost = 25
+scene = ExtResource("1_2nv18")
+grassPlant = false
+waterPlant = true
+tileOverrider = true
+newTileType = "Grass"
+YaddAmount = -20.0
+metadata/_custom_type_script = "uid://cwcecm06a0yca"

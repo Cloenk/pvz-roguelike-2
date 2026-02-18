@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://clh076us1surx"]
+
+[ext_resource type="PackedScene" uid="uid://bl0xsid6b2axq" path="res://plants/flowerPot/flowerPot.tscn" id="1_cbjy1"]
+[ext_resource type="Script" uid="uid://cwcecm06a0yca" path="res://plants/plantResource.gd" id="1_vbadc"]
+
+[resource]
+script = ExtResource("1_vbadc")
+name = "Flower Pot"
+sunCost = 25
+scene = ExtResource("1_cbjy1")
+earthPlant = true
+tileOverrider = true
+newTileType = "Grass"
+YaddAmount = -45.0
+metadata/_custom_type_script = "uid://cwcecm06a0yca"
