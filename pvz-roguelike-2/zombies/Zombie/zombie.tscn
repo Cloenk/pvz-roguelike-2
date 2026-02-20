@@ -7,9 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y71v"]
 size = Vector2(100, 173)
 
-[node name="Zombie" type="Node2D" unique_id=197724976]
+[node name="Zombie" type="Node2D" unique_id=197724976 node_paths=PackedStringArray("damage")]
 script = ExtResource("1_657eb")
 speedRange = Vector2(25, 30)
+damage = NodePath("Damage")
 metadata/_custom_type_script = "uid://bufmyltcxhbjq"
 
 [node name="Damage" parent="." unique_id=1780106425 node_paths=PackedStringArray("host") instance=ExtResource("3_4tvjp")]

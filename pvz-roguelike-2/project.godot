@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalGame="*uid://b5e1aolicuojg"
+GameStats="*uid://bqdwdqq5bfsqc"
 
 [display]
 

@@ -5,3 +5,4 @@ var selectedSeedSlot: SeedSlot
 var isShoveling = false
 var plants
 var zombies
+var projectiles

@@ -76,4 +76,6 @@ y_sort_enabled = true
 [node name="Zombies" type="Node2D" parent="Ysort" unique_id=107792759]
 
 [node name="Zombie" parent="Ysort/Zombies" unique_id=197724976 instance=ExtResource("10_l8dou")]
-position = Vector2(1851, 245)
+position = Vector2(1984, 245)
+
+[node name="Projectiles" type="Node2D" parent="Ysort" unique_id=2124432300]

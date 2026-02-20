@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bsuiiohqlv4w2"]
+
+[ext_resource type="Script" uid="uid://2e3ia6yvjwkm" path="res://plants/peashooter/pea.gd" id="1_lcih0"]
+[ext_resource type="PackedScene" uid="uid://bqk0x2nw2mke3" path="res://Components/targeting/targeting.tscn" id="1_wt4qa"]
+[ext_resource type="Texture2D" uid="uid://cta4nnp31l7ox" path="res://assets/Plants/Peashooter/pea.png" id="2_lcih0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lcih0"]
+
+[sub_resource type="Gradient" id="Gradient_oljvc"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.1764706)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b1q1u"]
+gradient = SubResource("Gradient_oljvc")
+
+[node name="Pea" type="CharacterBody2D" unique_id=1282166133]
+script = ExtResource("1_lcih0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1090900522]
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_lcih0")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=730848317]
+position = Vector2(0, 90)
+scale = Vector2(39.044228, 19.000004)
+mesh = SubResource("SphereMesh_lcih0")
+texture = SubResource("GradientTexture1D_b1q1u")
+
+[node name="Targeting" parent="." unique_id=1908822521 node_paths=PackedStringArray("targetRayCast") instance=ExtResource("1_wt4qa")]
+targetRayCast = NodePath("RayCast2D")
+targetGroups = Array[String](["Zombies", "Obstacles", "Neutral"])
+
+[node name="RayCast2D" type="RayCast2D" parent="Targeting" unique_id=744005846]
+position = Vector2(-19, 0)
+target_position = Vector2(38, 0)

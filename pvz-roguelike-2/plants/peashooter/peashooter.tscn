@@ -10,12 +10,12 @@ size = Vector2(100, 173)
 
 [sub_resource type="SphereMesh" id="SphereMesh_oljvc"]
 
-[sub_resource type="Gradient" id="Gradient_oljvc"]
+[sub_resource type="Gradient" id="Gradient_lnceg"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0, 0, 0, 0.1764706)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_lnceg"]
-gradient = SubResource("Gradient_oljvc")
+gradient = SubResource("Gradient_lnceg")
 
 [sub_resource type="Animation" id="Animation_oljvc"]
 resource_name = "Idle"
@@ -24,7 +24,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Visuals/Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,7 +36,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Visuals/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -51,7 +51,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Visuals/Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -63,7 +63,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Visuals/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -77,6 +77,67 @@ tracks/1/keys = {
 _data = {
 &"Idle": SubResource("Animation_oljvc"),
 &"RESET": SubResource("Animation_nm25g")
+}
+
+[sub_resource type="Animation" id="Animation_lnceg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_53jg8"]
+resource_name = "smush"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.9), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 7.35), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_arws0"]
+_data = {
+&"RESET": SubResource("Animation_lnceg"),
+&"smush": SubResource("Animation_53jg8")
 }
 
 [node name="Peashooter" type="Node2D" unique_id=1040740918 node_paths=PackedStringArray("idleAnimation", "collisionBox")]
@@ -106,10 +167,24 @@ scale = Vector2(102.866234, 35.500004)
 mesh = SubResource("SphereMesh_oljvc")
 texture = SubResource("GradientTexture1D_lnceg")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359278752]
+[node name="Visuals" type="Node2D" parent="." unique_id=256374963]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1359278752]
 position = Vector2(-0.40000153, -9)
 scale = Vector2(3.6, 3.6)
 texture = ExtResource("2_oljvc")
 
+[node name="ShootMarker" type="Marker2D" parent="Visuals/Sprite2D" unique_id=658229442]
+position = Vector2(7.88889, -10.833334)
+scale = Vector2(0.2777778, 0.2777778)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1553092807]
 libraries/ = SubResource("AnimationLibrary_nm25g")
+
+[node name="AttackAnimation" type="AnimationPlayer" parent="." unique_id=885234920]
+libraries/ = SubResource("AnimationLibrary_arws0")
+
+[node name="ShootCooldown" type="Timer" parent="." unique_id=741235837]
+one_shot = true
+
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
