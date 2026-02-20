@@ -13,6 +13,7 @@ func _input(event: InputEvent) -> void:
 			if canPlantBePlaced(getTilePosFromMouse(),GlobalGame.selectedSeedSlot.plantResource):
 				var newPlant:Plant = GlobalGame.selectedSeedSlot.plantResource.scene.instantiate()
 				newPlant.global_position = getTileGlobalPos(getTilePosFromMouse()) + Vector2(0,yAddAmount)
+				newPlant.yOffset = yAddAmount
 				plantsOnLawn.append(newPlant)
 				newPlant.lawnPos = getTilePosFromMouse()
 				newPlant.plantResource = GlobalGame.selectedSeedSlot.plantResource

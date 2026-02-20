@@ -28,6 +28,7 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
+"res://Components/": "yellow",
 "res://GameScenes/": "orange",
 "res://Globals/": "pink",
 "res://assets/": "red",

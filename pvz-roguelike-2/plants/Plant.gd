@@ -2,12 +2,13 @@ extends Node2D
 class_name Plant
 
 @export var plantResource: PlantResource
-@export var Maxhp: float = 5
 @export var idleAnimation: AnimationPlayer
-var hp
+@export var collisionBox: CollisionShape2D
 var lawnPos: Vector2i
+var yOffset: float
 
 func _ready() -> void:
-	hp = Maxhp
 	if idleAnimation:
 		idleAnimation.play("Idle")
+	if collisionBox:
+		collisionBox.position.y -= yOffset

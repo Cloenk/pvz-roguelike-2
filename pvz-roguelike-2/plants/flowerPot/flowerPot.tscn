@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://bl0xsid6b2axq"]
 
 [ext_resource type="Script" uid="uid://cbg38fxbsbrd" path="res://plants/Plant.gd" id="1_1khw5"]
+[ext_resource type="PackedScene" uid="uid://8mu2amqhspdp" path="res://Components/Damage/damage.tscn" id="2_5r7k8"]
 [ext_resource type="Texture2D" uid="uid://crof76r4mb4su" path="res://assets/Plants/flowerPot/flowerPot.png" id="2_n462a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fphuc"]
+size = Vector2(75, 173)
 
 [sub_resource type="SphereMesh" id="SphereMesh_n462a"]
 
@@ -51,6 +55,14 @@ z_index = -1
 script = ExtResource("1_1khw5")
 idleAnimation = NodePath("AnimationPlayer")
 metadata/_custom_type_script = "uid://cbg38fxbsbrd"
+
+[node name="Damage" parent="." unique_id=1780106425 node_paths=PackedStringArray("host") instance=ExtResource("2_5r7k8")]
+host = NodePath("..")
+maxHp = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage" unique_id=241398902]
+position = Vector2(-3, -0.5)
+shape = SubResource("RectangleShape2D_fphuc")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1512569370]
 position = Vector2(0, 65.000015)
