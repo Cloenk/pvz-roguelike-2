@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cc6enyphrk0y0"]
+
+[ext_resource type="Script" uid="uid://bufmyltcxhbjq" path="res://zombies/zombie.gd" id="1_657eb"]
+[ext_resource type="Texture2D" uid="uid://blj7mcm3qq2qi" path="res://icon.svg" id="2_nvpc2"]
+[ext_resource type="PackedScene" uid="uid://8mu2amqhspdp" path="res://Components/Damage/damage.tscn" id="3_4tvjp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y71v"]
+size = Vector2(100, 173)
+
+[node name="Zombie" type="Node2D" unique_id=197724976]
+script = ExtResource("1_657eb")
+speedRange = Vector2(25, 30)
+metadata/_custom_type_script = "uid://bufmyltcxhbjq"
+
+[node name="Damage" parent="." unique_id=1780106425 node_paths=PackedStringArray("host") instance=ExtResource("3_4tvjp")]
+host = NodePath("..")
+team = 1
+maxHp = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage" unique_id=721937178]
+position = Vector2(-3, -0.5)
+shape = SubResource("RectangleShape2D_3y71v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=967260468]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_nvpc2")

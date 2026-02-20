@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://clh076us1surx" path="res://plants/flowerPot/flowerPot.tres" id="6_teeg0"]
 [ext_resource type="Resource" uid="uid://ew40ae3unlp5" path="res://plants/lilypad/lilypad.tres" id="7_teeg0"]
 [ext_resource type="Resource" uid="uid://iuua75j4vcge" path="res://plants/waterPot/WaterPot.tres" id="8_fm1gp"]
+[ext_resource type="PackedScene" uid="uid://cc6enyphrk0y0" path="res://zombies/Zombie/zombie.tscn" id="10_l8dou"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d43ru"]
 texture = ExtResource("4_l8dou")
@@ -71,3 +72,8 @@ y_sort_enabled = true
 
 [node name="Plants" type="Node2D" parent="Ysort" unique_id=867407033]
 y_sort_enabled = true
+
+[node name="Zombies" type="Node2D" parent="Ysort" unique_id=107792759]
+
+[node name="Zombie" parent="Ysort/Zombies" unique_id=197724976 instance=ExtResource("10_l8dou")]
+position = Vector2(1851, 245)

@@ -8,6 +8,7 @@ enum teams {Plants,Zombies,Obstacles,Neutral}
 @export var maxHp: float
 @export var maxArmor: float
 @export var defense: float
+@export var canBeTargeted: bool = true
 var hp: float
 var armor: float
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 	hp = maxHp
 	armor = maxArmor
 	add_to_group(getTeamString())
+	setCollisionLayer(getTeamString())
 
 func damage(amount: float):
 	amount -= defense
@@ -33,6 +35,21 @@ func damage(amount: float):
 func die(leftOver: float):
 	death.emit(leftOver)
 	host.queue_free()
+
+func setCollisionLayer(newTeam:String):
+	match newTeam:
+		"Plants":
+			set_collision_layer(1)
+			set_collision_mask(1)
+		"Zombies":
+			set_collision_layer(2)
+			set_collision_mask(2)
+		"Obstacles":
+			set_collision_layer(3)
+			set_collision_mask(3)
+		"Neutral":
+			set_collision_layer(4)
+			set_collision_mask(4)
 
 func getTeamString():
 	return teams.keys()[team]

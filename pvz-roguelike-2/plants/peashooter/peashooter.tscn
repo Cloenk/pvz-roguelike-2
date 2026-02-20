@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dljgvit78c84u"]
 
-[ext_resource type="Script" uid="uid://cbg38fxbsbrd" path="res://plants/Plant.gd" id="1_k18t3"]
+[ext_resource type="Script" uid="uid://ct14tl7r853ga" path="res://plants/peashooter/peashooter.gd" id="1_lnceg"]
 [ext_resource type="Texture2D" uid="uid://bsxpcbdfjwm46" path="res://assets/Plants/Peashooter/peashooter.png" id="2_oljvc"]
 [ext_resource type="PackedScene" uid="uid://8mu2amqhspdp" path="res://Components/Damage/damage.tscn" id="3_nm25g"]
+[ext_resource type="PackedScene" uid="uid://bqk0x2nw2mke3" path="res://Components/targeting/targeting.tscn" id="4_lnceg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nm25g"]
 size = Vector2(100, 173)
@@ -79,10 +80,14 @@ _data = {
 }
 
 [node name="Peashooter" type="Node2D" unique_id=1040740918 node_paths=PackedStringArray("idleAnimation", "collisionBox")]
-script = ExtResource("1_k18t3")
+script = ExtResource("1_lnceg")
 idleAnimation = NodePath("AnimationPlayer")
 collisionBox = NodePath("Damage/CollisionShape2D")
 metadata/_custom_type_script = "uid://cbg38fxbsbrd"
+
+[node name="Targeting" parent="." unique_id=1908822521 node_paths=PackedStringArray("targetRayCast") instance=ExtResource("4_lnceg")]
+targetRayCast = NodePath("../TargetingRayCast")
+targetGroups = Array[String](["Zombies", "Obstacles", "Neutral"])
 
 [node name="Damage" parent="." unique_id=1780106425 node_paths=PackedStringArray("host") instance=ExtResource("3_nm25g")]
 host = NodePath("..")
@@ -91,6 +96,9 @@ maxHp = 5.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage" unique_id=1278936891]
 position = Vector2(-3, -0.5)
 shape = SubResource("RectangleShape2D_nm25g")
+
+[node name="TargetingRayCast" type="RayCast2D" parent="." unique_id=1920512915]
+target_position = Vector2(1500, 0)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=780198435]
 position = Vector2(-4.4000015, 64)
