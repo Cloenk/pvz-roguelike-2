@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://di47pp1vg2sf1" path="res://GameScenes/Game/lawn.gd" id="1_cq1s6"]
 [ext_resource type="Script" uid="uid://cxxbi3pfyr6hn" path="res://GameScenes/Game/game.gd" id="1_kdsp7"]
+[ext_resource type="Texture2D" uid="uid://b53666nxujmls" path="res://assets/Lawn/NewLawn.png" id="3_l8dou"]
 [ext_resource type="PackedScene" uid="uid://8my1nby50qrx" path="res://GameScenes/SeedSlots/seed_slot.tscn" id="3_vf0vs"]
-[ext_resource type="Texture2D" uid="uid://cxr0hacwmmil4" path="res://assets/Lawn/Lawn.png" id="4_d43ru"]
 [ext_resource type="Texture2D" uid="uid://cry5x60wdcfi6" path="res://assets/Lawn/Tiles.png" id="4_l8dou"]
 [ext_resource type="Resource" uid="uid://b5vfkjqtsqtdt" path="res://plants/peashooter/peaShooter.tres" id="4_t8b58"]
 [ext_resource type="Resource" uid="uid://clh076us1surx" path="res://plants/flowerPot/flowerPot.tres" id="6_teeg0"]
@@ -39,8 +39,8 @@ script = ExtResource("1_cq1s6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Lawn" unique_id=1094256189]
 position = Vector2(1260, 540)
-scale = Vector2(7.2, 7.2)
-texture = ExtResource("4_d43ru")
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("3_l8dou")
 
 [node name="TileMap" type="TileMap" parent="Lawn" unique_id=951313880]
 position = Vector2(424.82, 158.385)
