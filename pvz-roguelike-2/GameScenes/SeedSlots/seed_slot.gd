@@ -23,10 +23,11 @@ func _process(delta: float) -> void:
 		borderSprite.texture = BORDER
 	if plantResource.texture:
 		bgSprite.texture = plantResource.texture
-	if !available:
+	if !available or GlobalGame.sun < plantResource.sunCost:
 		darken_container.modulate = Color.DIM_GRAY
-		cooldown_label.modulate = Color.WHITE
-		cooldown_label.text = str("%.2f" % (cooldown.time_left))
+		if !cooldown.is_stopped():
+			cooldown_label.modulate = Color.WHITE
+			cooldown_label.text = str("%.2f" % (cooldown.time_left))
 	else:
 		darken_container.modulate = Color.WHITE
 		cooldown_label.modulate = Color.TRANSPARENT
@@ -48,4 +49,5 @@ func use():
 	GlobalGame.selectedSeedSlot = null
 
 func _on_cooldown_timeout() -> void:
+	cooldown_label.modulate = Color.TRANSPARENT
 	available = true

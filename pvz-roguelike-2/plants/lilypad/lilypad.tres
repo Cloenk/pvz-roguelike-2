@@ -9,6 +9,7 @@ script = ExtResource("2_dnith")
 name = "lilypad"
 sunCost = 25
 texture = ExtResource("3_dnith")
+rechargeTime = 2.5
 scene = ExtResource("1_2nv18")
 grassPlant = false
 waterPlant = true

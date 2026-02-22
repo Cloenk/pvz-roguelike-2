@@ -34,6 +34,8 @@ func damage(amount: float):
 
 func die(leftOver: float):
 	death.emit(leftOver)
+	if team == teams.Plants:
+		GlobalGame.lawn.plantsOnLawn.erase(host)
 	host.queue_free()
 
 func setCollisionLayer(newTeam:String):

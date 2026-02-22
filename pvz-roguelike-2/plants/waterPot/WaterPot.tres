@@ -9,6 +9,7 @@ script = ExtResource("1_0qvjp")
 name = "Water Pot"
 sunCost = 25
 texture = ExtResource("3_78qi3")
+rechargeTime = 2.5
 scene = ExtResource("1_kdcng")
 earthPlant = true
 tileOverrider = true

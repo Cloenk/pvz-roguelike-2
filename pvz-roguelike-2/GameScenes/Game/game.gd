@@ -3,11 +3,16 @@ extends Node2D
 @onready var zombies: Node2D = $Ysort/Zombies
 @onready var projectiles: Node2D = $Ysort/Projectiles
 @onready var sun_counter_label: Label = $GUI/sunCounter/SunCounterLabel
+@onready var lawn: Lawn = $Lawn
+
+var displayedSun = 0.0
 
 func _ready() -> void:
 	GlobalGame.plants = plants
 	GlobalGame.zombies = zombies
 	GlobalGame.projectiles = projectiles
+	GlobalGame.lawn = lawn
 
 func _process(delta: float) -> void:
-	sun_counter_label.text = str(GlobalGame.sun)
+	displayedSun = lerp(displayedSun,GlobalGame.sun,6*delta)
+	sun_counter_label.text = str("%.0f" % displayedSun)

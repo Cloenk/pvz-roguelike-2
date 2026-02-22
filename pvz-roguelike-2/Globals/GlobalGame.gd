@@ -1,8 +1,9 @@
 extends Node
 
-var sun = 1000
+var sun: float = 125
 var selectedSeedSlot: SeedSlot
 var isShoveling = false
 var plants
 var zombies
 var projectiles
+var lawn: Lawn
