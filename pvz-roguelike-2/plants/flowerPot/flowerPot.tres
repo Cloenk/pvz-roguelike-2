@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bl0xsid6b2axq" path="res://plants/flowerPot/flowerPot.tscn" id="1_cbjy1"]
 [ext_resource type="Script" uid="uid://cwcecm06a0yca" path="res://plants/plantResource.gd" id="1_vbadc"]
+[ext_resource type="Texture2D" uid="uid://dd37pcfdus6cr" path="res://assets/Plants/flowerPot/SeedPacket.png" id="3_akf1j"]
 
 [resource]
 script = ExtResource("1_vbadc")
 name = "Flower Pot"
 sunCost = 25
+texture = ExtResource("3_akf1j")
 scene = ExtResource("1_cbjy1")
 earthPlant = true
 tileOverrider = true

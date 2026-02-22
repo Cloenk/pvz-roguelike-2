@@ -1,20 +1,69 @@
 [gd_scene format=3 uid="uid://8my1nby50qrx"]
 
 [ext_resource type="Script" uid="uid://kptbv0f0wsg5" path="res://GameScenes/SeedSlots/seed_slot.gd" id="1_ebwks"]
+[ext_resource type="Texture2D" uid="uid://dknk5r0a00w1a" path="res://assets/seedPacket/bg.png" id="2_r8oeb"]
+[ext_resource type="Texture2D" uid="uid://dmwxgcjf8j72h" path="res://assets/seedPacket/border.png" id="3_vhcs0"]
+[ext_resource type="Texture2D" uid="uid://blxrew5hm8dgw" path="res://assets/seedPacket/sun.png" id="4_84fjw"]
+[ext_resource type="FontFile" uid="uid://cwf55a42r6rg6" path="res://assets/font/yoster.ttf" id="5_84fjw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f5swh"]
+font = ExtResource("5_84fjw")
+font_size = 25
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_84fjw"]
+font = ExtResource("5_84fjw")
+font_size = 46
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [node name="SeedSlot" type="Node2D" unique_id=1125373270]
 script = ExtResource("1_ebwks")
 
+[node name="DarkenContainer" type="Node2D" parent="." unique_id=1717458531]
+
+[node name="BG" type="Sprite2D" parent="DarkenContainer" unique_id=1508163704]
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_r8oeb")
+
+[node name="Border" type="Sprite2D" parent="DarkenContainer" unique_id=440956963]
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("3_vhcs0")
+
+[node name="Sun" type="Sprite2D" parent="DarkenContainer" unique_id=764518762]
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("4_84fjw")
+
+[node name="SunLabel" type="Label" parent="DarkenContainer" unique_id=900592168]
+offset_left = -36.0
+offset_top = -2.0
+offset_right = 61.0
+offset_bottom = 52.0
+text = "100"
+label_settings = SubResource("LabelSettings_f5swh")
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="Button" type="Button" parent="." unique_id=159248141]
-offset_right = 237.0
-offset_bottom = 79.0
+modulate = Color(1, 1, 1, 0)
+offset_left = -133.0
+offset_top = -59.0
+offset_right = 133.0
+offset_bottom = 59.0
 focus_mode = 0
 
-[node name="NameLabel" type="Label" parent="." unique_id=900592168]
-offset_right = 236.0
-offset_bottom = 78.0
-text = "name"
+[node name="CooldownLabel" type="Label" parent="." unique_id=259445189]
+offset_left = -119.0
+offset_top = -45.0
+offset_right = 119.0
+offset_bottom = 45.0
+text = "2.5"
+label_settings = SubResource("LabelSettings_84fjw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Cooldown" type="Timer" parent="." unique_id=609337007]
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

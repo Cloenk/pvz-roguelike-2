@@ -2,14 +2,23 @@
 
 [ext_resource type="Script" uid="uid://di47pp1vg2sf1" path="res://GameScenes/Game/lawn.gd" id="1_cq1s6"]
 [ext_resource type="Script" uid="uid://cxxbi3pfyr6hn" path="res://GameScenes/Game/game.gd" id="1_kdsp7"]
+[ext_resource type="Texture2D" uid="uid://bofy0bqqeqj8c" path="res://assets/Lawn/sunUI.png" id="2_emnf4"]
+[ext_resource type="Texture2D" uid="uid://dp6y4ghv1f0cs" path="res://assets/Lawn/Sun/sunFull.png" id="3_34oce"]
 [ext_resource type="Texture2D" uid="uid://b53666nxujmls" path="res://assets/Lawn/NewLawn.png" id="3_l8dou"]
 [ext_resource type="PackedScene" uid="uid://8my1nby50qrx" path="res://GameScenes/SeedSlots/seed_slot.tscn" id="3_vf0vs"]
 [ext_resource type="Texture2D" uid="uid://cry5x60wdcfi6" path="res://assets/Lawn/Tiles.png" id="4_l8dou"]
 [ext_resource type="Resource" uid="uid://b5vfkjqtsqtdt" path="res://plants/peashooter/peaShooter.tres" id="4_t8b58"]
+[ext_resource type="FontFile" uid="uid://cwf55a42r6rg6" path="res://assets/font/yoster.ttf" id="4_w0eql"]
 [ext_resource type="Resource" uid="uid://clh076us1surx" path="res://plants/flowerPot/flowerPot.tres" id="6_teeg0"]
 [ext_resource type="Resource" uid="uid://ew40ae3unlp5" path="res://plants/lilypad/lilypad.tres" id="7_teeg0"]
 [ext_resource type="Resource" uid="uid://iuua75j4vcge" path="res://plants/waterPot/WaterPot.tres" id="8_fm1gp"]
 [ext_resource type="PackedScene" uid="uid://cc6enyphrk0y0" path="res://zombies/Zombie/zombie.tscn" id="10_l8dou"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_34oce"]
+font = ExtResource("4_w0eql")
+font_size = 57
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d43ru"]
 texture = ExtResource("4_l8dou")
@@ -33,6 +42,30 @@ sources/0 = SubResource("TileSetAtlasSource_d43ru")
 [node name="Game" type="Node2D" unique_id=1416348256]
 script = ExtResource("1_kdsp7")
 
+[node name="GUI" type="CanvasLayer" parent="." unique_id=659276192]
+
+[node name="sunCounter" type="Node2D" parent="GUI" unique_id=1649239124]
+position = Vector2(1260, 540)
+
+[node name="Background" type="Sprite2D" parent="GUI/sunCounter" unique_id=1109800667]
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_emnf4")
+
+[node name="Sun" type="Sprite2D" parent="GUI/sunCounter" unique_id=765316666]
+position = Vector2(-1146, -420)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("3_34oce")
+
+[node name="SunCounterLabel" type="Label" parent="GUI/sunCounter" unique_id=708002740]
+offset_left = -1076.0
+offset_top = -472.0
+offset_right = -911.0
+offset_bottom = -364.0
+text = "100"
+label_settings = SubResource("LabelSettings_34oce")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Lawn" type="Node2D" parent="." unique_id=1248983122]
 z_index = -2
 script = ExtResource("1_cq1s6")
@@ -52,19 +85,27 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 0, 131072, 131072, 0
 [node name="SeedSlots" type="Node2D" parent="." unique_id=48362218]
 
 [node name="SeedSlot" parent="SeedSlots" unique_id=1125373270 instance=ExtResource("3_vf0vs")]
-position = Vector2(176, 195)
+position = Vector2(208, 279)
 plantResource = ExtResource("4_t8b58")
 
 [node name="SeedSlot2" parent="SeedSlots" unique_id=1276556706 instance=ExtResource("3_vf0vs")]
-position = Vector2(176, 284)
+position = Vector2(208, 404)
 plantResource = ExtResource("6_teeg0")
 
 [node name="SeedSlot3" parent="SeedSlots" unique_id=1579812267 instance=ExtResource("3_vf0vs")]
-position = Vector2(176, 373)
+position = Vector2(208, 529)
 plantResource = ExtResource("7_teeg0")
 
 [node name="SeedSlot4" parent="SeedSlots" unique_id=1811703520 instance=ExtResource("3_vf0vs")]
-position = Vector2(176, 468)
+position = Vector2(208, 654)
+plantResource = ExtResource("8_fm1gp")
+
+[node name="SeedSlot5" parent="SeedSlots" unique_id=21948419 instance=ExtResource("3_vf0vs")]
+position = Vector2(208, 779)
+plantResource = ExtResource("8_fm1gp")
+
+[node name="SeedSlot6" parent="SeedSlots" unique_id=512177468 instance=ExtResource("3_vf0vs")]
+position = Vector2(208, 904)
 plantResource = ExtResource("8_fm1gp")
 
 [node name="Ysort" type="Node2D" parent="." unique_id=1668961523]
