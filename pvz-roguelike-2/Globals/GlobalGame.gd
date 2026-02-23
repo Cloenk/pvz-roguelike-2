@@ -1,6 +1,6 @@
 extends Node
 
-var sun: float = 125
+var sun: float = 1000
 var selectedSeedSlot: SeedSlot
 var isShoveling = false
 var plants

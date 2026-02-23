@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://ew40ae3unlp5" path="res://plants/lilypad/lilypad.tres" id="7_teeg0"]
 [ext_resource type="Resource" uid="uid://iuua75j4vcge" path="res://plants/waterPot/WaterPot.tres" id="8_fm1gp"]
 [ext_resource type="PackedScene" uid="uid://cc6enyphrk0y0" path="res://zombies/Zombie/zombie.tscn" id="10_l8dou"]
+[ext_resource type="PackedScene" uid="uid://dlg7l1vlpxq4f" path="res://GameScenes/Sun/sun.tscn" id="14_qjpr7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_34oce"]
 font = ExtResource("4_w0eql")
@@ -42,21 +43,19 @@ sources/0 = SubResource("TileSetAtlasSource_d43ru")
 [node name="Game" type="Node2D" unique_id=1416348256]
 script = ExtResource("1_kdsp7")
 
-[node name="GUI" type="CanvasLayer" parent="." unique_id=659276192]
-
-[node name="sunCounter" type="Node2D" parent="GUI" unique_id=1649239124]
+[node name="sunCounter" type="Node2D" parent="." unique_id=1649239124]
 position = Vector2(1260, 540)
 
-[node name="Background" type="Sprite2D" parent="GUI/sunCounter" unique_id=1109800667]
+[node name="Background" type="Sprite2D" parent="sunCounter" unique_id=1109800667]
 scale = Vector2(3.6, 3.6)
 texture = ExtResource("2_emnf4")
 
-[node name="Sun" type="Sprite2D" parent="GUI/sunCounter" unique_id=765316666]
+[node name="Sun" type="Sprite2D" parent="sunCounter" unique_id=765316666]
 position = Vector2(-1146, -420)
 scale = Vector2(3.6, 3.6)
 texture = ExtResource("3_34oce")
 
-[node name="SunCounterLabel" type="Label" parent="GUI/sunCounter" unique_id=708002740]
+[node name="SunCounterLabel" type="Label" parent="sunCounter" unique_id=708002740]
 offset_left = -1076.0
 offset_top = -472.0
 offset_right = -911.0
@@ -120,3 +119,6 @@ y_sort_enabled = true
 position = Vector2(1984, 245)
 
 [node name="Projectiles" type="Node2D" parent="Ysort" unique_id=2124432300]
+
+[node name="Sun" parent="." unique_id=512680759 instance=ExtResource("14_qjpr7")]
+position = Vector2(1113, 590)
