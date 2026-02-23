@@ -39,6 +39,24 @@ custom_data_layer_0/name = "TileType"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_d43ru")
 
+[sub_resource type="InputEventAction" id="InputEventAction_w0eql"]
+action = &"1"
+
+[sub_resource type="InputEventAction" id="InputEventAction_qjpr7"]
+action = &"2"
+
+[sub_resource type="InputEventAction" id="InputEventAction_02rmm"]
+action = &"3"
+
+[sub_resource type="InputEventAction" id="InputEventAction_rym54"]
+action = &"4"
+
+[sub_resource type="InputEventAction" id="InputEventAction_tg6ok"]
+action = &"5"
+
+[sub_resource type="InputEventAction" id="InputEventAction_tm2nj"]
+action = &"6"
+
 [node name="Game" type="Node2D" unique_id=1416348256]
 script = ExtResource("1_kdsp7")
 
@@ -98,26 +116,32 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 0, 131072, 131072, 0
 [node name="SeedSlot" parent="SeedSlots" unique_id=1125373270 instance=ExtResource("3_vf0vs")]
 position = Vector2(208, 279)
 plantResource = ExtResource("4_t8b58")
+keyBind = SubResource("InputEventAction_w0eql")
 
 [node name="SeedSlot2" parent="SeedSlots" unique_id=1276556706 instance=ExtResource("3_vf0vs")]
 position = Vector2(208, 404)
 plantResource = ExtResource("6_teeg0")
+keyBind = SubResource("InputEventAction_qjpr7")
 
 [node name="SeedSlot3" parent="SeedSlots" unique_id=1579812267 instance=ExtResource("3_vf0vs")]
 position = Vector2(208, 529)
 plantResource = ExtResource("7_teeg0")
+keyBind = SubResource("InputEventAction_02rmm")
 
 [node name="SeedSlot4" parent="SeedSlots" unique_id=1811703520 instance=ExtResource("3_vf0vs")]
 position = Vector2(208, 654)
 plantResource = ExtResource("8_fm1gp")
+keyBind = SubResource("InputEventAction_rym54")
 
 [node name="SeedSlot5" parent="SeedSlots" unique_id=21948419 instance=ExtResource("3_vf0vs")]
 position = Vector2(208, 779)
 plantResource = ExtResource("8_fm1gp")
+keyBind = SubResource("InputEventAction_tg6ok")
 
 [node name="SeedSlot6" parent="SeedSlots" unique_id=512177468 instance=ExtResource("3_vf0vs")]
 position = Vector2(208, 904)
 plantResource = ExtResource("8_fm1gp")
+keyBind = SubResource("InputEventAction_tm2nj")
 
 [node name="SunContainer" type="Node2D" parent="." unique_id=1738650087]
 

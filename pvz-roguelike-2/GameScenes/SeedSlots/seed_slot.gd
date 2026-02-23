@@ -5,6 +5,7 @@ const BORDER = preload("uid://dmwxgcjf8j72h")
 const BORDER_SELECTED = preload("uid://dkg2sqoislxmr")
 
 @export var plantResource: PlantResource
+@export var keyBind: InputEventAction
 
 @onready var sun_label: Label = $DarkenContainer/SunLabel
 @onready var borderSprite: Sprite2D = $DarkenContainer/Border
@@ -31,6 +32,8 @@ func _process(delta: float) -> void:
 	else:
 		darken_container.modulate = Color.WHITE
 		cooldown_label.modulate = Color.TRANSPARENT
+	if Input.is_action_just_pressed(keyBind.action):
+		_on_button_pressed()
 
 func _on_button_pressed() -> void:
 	if GlobalGame.sun >= plantResource.sunCost and available and !GlobalGame.isShoveling:
