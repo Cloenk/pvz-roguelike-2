@@ -8,6 +8,23 @@ var yAddAmount = 0
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("LMB"):
+		if GlobalGame.isShoveling:
+			GlobalGame.isShoveling = false
+			var extraPlant: Plant = getExtraPlantFromTile(getTilePosFromMouse())
+			if extraPlant:
+				plantsOnLawn.erase(extraPlant)
+				extraPlant.queue_free()
+				return
+			var normalPlant: Plant = getNormalPlantFromTile(getTilePosFromMouse())
+			if normalPlant:
+				plantsOnLawn.erase(normalPlant)
+				normalPlant.queue_free()
+				return
+			var TileOverriderPlant: Plant = getTileOverriderPlantFromTile(getTilePosFromMouse())
+			if TileOverriderPlant:
+				plantsOnLawn.erase(TileOverriderPlant)
+				TileOverriderPlant.queue_free()
+				return
 		if GlobalGame.selectedSeedSlot:
 			yAddAmount = 0
 			if canPlantBePlaced(getTilePosFromMouse(),GlobalGame.selectedSeedSlot.plantResource):

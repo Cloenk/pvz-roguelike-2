@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cry5x60wdcfi6" path="res://assets/Lawn/Tiles.png" id="4_l8dou"]
 [ext_resource type="Resource" uid="uid://b5vfkjqtsqtdt" path="res://plants/peashooter/peaShooter.tres" id="4_t8b58"]
 [ext_resource type="FontFile" uid="uid://cwf55a42r6rg6" path="res://assets/font/yoster.ttf" id="4_w0eql"]
+[ext_resource type="Texture2D" uid="uid://bqurb7vlypixs" path="res://assets/Lawn/shovel/shovelContainer.png" id="6_qjpr7"]
+[ext_resource type="Script" uid="uid://dr3nq6rbl13yv" path="res://GameScenes/Game/shovel.gd" id="6_rym54"]
 [ext_resource type="Resource" uid="uid://clh076us1surx" path="res://plants/flowerPot/flowerPot.tres" id="6_teeg0"]
+[ext_resource type="Texture2D" uid="uid://d3uaj4guo3mil" path="res://assets/Lawn/shovel/shovel.png" id="7_02rmm"]
 [ext_resource type="Resource" uid="uid://ew40ae3unlp5" path="res://plants/lilypad/lilypad.tres" id="7_teeg0"]
 [ext_resource type="Resource" uid="uid://iuua75j4vcge" path="res://plants/waterPot/WaterPot.tres" id="8_fm1gp"]
 [ext_resource type="PackedScene" uid="uid://cc6enyphrk0y0" path="res://zombies/Zombie/zombie.tscn" id="10_l8dou"]
@@ -94,6 +97,18 @@ text = "100"
 label_settings = SubResource("LabelSettings_34oce")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Shovel" type="Node2D" parent="." unique_id=1019256818]
+position = Vector2(1837, 82)
+script = ExtResource("6_rym54")
+
+[node name="Container" type="Sprite2D" parent="Shovel" unique_id=1886905909]
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("6_qjpr7")
+
+[node name="Shovel" type="Sprite2D" parent="Shovel" unique_id=915079242]
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("7_02rmm")
 
 [node name="Lawn" type="Node2D" parent="." unique_id=1248983122]
 z_index = -2
