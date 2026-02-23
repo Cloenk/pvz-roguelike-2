@@ -11,6 +11,7 @@ extends Node2D
 @onready var sun_container: Node2D = $SunContainer
 
 var displayedSun = 0.0
+var fastForwardEnabled = false
 
 func _ready() -> void:
 	GlobalGame.plants = plants
@@ -32,3 +33,11 @@ func spawnSun():
 func _process(delta: float) -> void:
 	displayedSun = lerp(displayedSun,GlobalGame.sun,6*delta)
 	sun_counter_label.text = str("%.0f" % displayedSun)
+	if fastForwardEnabled:
+		Engine.time_scale = 2
+		if Input.is_action_just_pressed("fastForward"):
+			fastForwardEnabled = false
+	else:
+		Engine.time_scale = 1
+		if Input.is_action_just_pressed("fastForward"):
+			fastForwardEnabled = true
