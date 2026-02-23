@@ -76,3 +76,8 @@ texture = ExtResource("1_skash")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=405584726]
 libraries/ = SubResource("AnimationLibrary_gtnh4")
+
+[node name="StopTimer" type="Timer" parent="." unique_id=1057696282]
+one_shot = true
+
+[connection signal="timeout" from="StopTimer" to="." method="_on_stop_timer_timeout"]
