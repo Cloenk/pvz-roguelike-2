@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://biiq3kvul2ky5"
-path="res://.godot/imported/graveStone1Full.png-b15c2d758bded7f0dee48284480d658d.ctex"
+path="res://.godot/imported/graveStoneFull.png-b0a993d7c4e64c8f16b9519cee73c3c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lawnObjects/graveStone/graveStone1Full.png"
-dest_files=["res://.godot/imported/graveStone1Full.png-b15c2d758bded7f0dee48284480d658d.ctex"]
+source_file="res://assets/lawnObjects/graveStone/graveStoneFull.png"
+dest_files=["res://.godot/imported/graveStoneFull.png-b0a993d7c4e64c8f16b9519cee73c3c9.ctex"]
 
 [params]
 

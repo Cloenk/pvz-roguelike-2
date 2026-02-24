@@ -53,6 +53,7 @@ func _input(event: InputEvent) -> void:
 
 func spawnLawnObjct(object: PackedScene,tilePos:Vector2i):
 	var newObject = object.instantiate()
+	newObject.lawnPos = tilePos
 	newObject.global_position = getTileGlobalPos(tilePos)
 	lawn_objects.add_child(newObject)
 
@@ -71,6 +72,10 @@ func canPlantBePlaced(tilePos:Vector2i, plant:PlantResource):
 	return false
 
 func isTileOccupied(tilePos:Vector2i, plant:PlantResource):
+	if getLawnObjectFromTile(tilePos) == null:
+		return true
+	else:
+		return false
 	if plant.extraPlant:
 		if getExtraPlantFromTile(tilePos) == null:
 			return true
@@ -100,6 +105,10 @@ func getTileOverriderPlantFromTile(tilePos:Vector2i):
 	for plant in plantsOnLawn:
 		if plant.is_in_group("TileOverriderPlant") and plant.lawnPos == tilePos:
 			return plant
+func getLawnObjectFromTile(tilePos:Vector2i):
+	for lawnObject: LawnObject in lawn_objects.get_children():
+		if lawnObject.lawnPos == tilePos:
+			return true
 
 func getTilePosFromMouse():
 	return tile_map.local_to_map(tile_map.to_local(get_global_mouse_position()))
