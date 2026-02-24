@@ -72,22 +72,19 @@ func canPlantBePlaced(tilePos:Vector2i, plant:PlantResource):
 	return false
 
 func isTileOccupied(tilePos:Vector2i, plant:PlantResource):
-	if getLawnObjectFromTile(tilePos) == null:
-		return true
-	else:
-		return false
+	var isTileObject = getLawnObjectFromTile(tilePos)
 	if plant.extraPlant:
-		if getExtraPlantFromTile(tilePos) == null:
+		if getExtraPlantFromTile(tilePos) == null and !isTileObject:
 			return true
 		else:
 			return false
 	if plant.tileOverrider:
-		if getTileOverriderPlantFromTile(tilePos) == null:
+		if getTileOverriderPlantFromTile(tilePos) == null and !isTileObject:
 			return true
 		else:
 			return false
 	if plant.grassPlant:
-		if getNormalPlantFromTile(tilePos) == null:
+		if getNormalPlantFromTile(tilePos) == null and !isTileObject:
 			return true
 		else:
 			return false
