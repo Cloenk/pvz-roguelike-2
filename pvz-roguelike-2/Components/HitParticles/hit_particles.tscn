@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dk1awslrk2xjy"]
+
+[ext_resource type="Script" uid="uid://dffulk54q5gsy" path="res://Components/HitParticles/hit_particles.gd" id="1_rdict"]
+
+[sub_resource type="Gradient" id="Gradient_xrbhg"]
+offsets = PackedFloat32Array(0, 0.81456953, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rdict"]
+gradient = SubResource("Gradient_xrbhg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1wyhp"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 25.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+scale_min = 6.0
+scale_max = 8.0
+color_ramp = SubResource("GradientTexture1D_rdict")
+
+[node name="HitParticles" type="GPUParticles2D" unique_id=1170579128]
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1wyhp")
+script = ExtResource("1_rdict")
