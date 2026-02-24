@@ -1,10 +1,15 @@
 extends Node2D
 class_name Lawn
+const GRAVE_STONE = preload("uid://cpksb545pf7aa")
 
 @onready var tile_map: TileMap = $TileMap
+@onready var lawn_objects: Node2D = $"../Ysort/LawnObjects"
 
 var plantsOnLawn: Array[Plant] = []
 var yAddAmount = 0
+
+func _ready() -> void:
+	spawnLawnObjct(GRAVE_STONE,Vector2i(4,0))
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("LMB"):
@@ -45,6 +50,11 @@ func _input(event: InputEvent) -> void:
 				GlobalGame.selectedSeedSlot.use()
 	if Input.is_action_just_pressed("RMB"):
 		GlobalGame.selectedSeedSlot = null
+
+func spawnLawnObjct(object: PackedScene,tilePos:Vector2i):
+	var newObject = object.instantiate()
+	newObject.global_position = getTileGlobalPos(tilePos)
+	lawn_objects.add_child(newObject)
 
 func canPlantBePlaced(tilePos:Vector2i, plant:PlantResource):
 	var tileType = getTileType(tilePos)

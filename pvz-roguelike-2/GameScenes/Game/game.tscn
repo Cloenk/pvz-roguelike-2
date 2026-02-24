@@ -70,11 +70,16 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="Zombies" type="Node2D" parent="Ysort" unique_id=107792759]
+y_sort_enabled = true
 
 [node name="Zombie" parent="Ysort/Zombies" unique_id=197724976 instance=ExtResource("10_l8dou")]
 position = Vector2(1984, 245)
 
 [node name="Projectiles" type="Node2D" parent="Ysort" unique_id=2124432300]
+y_sort_enabled = true
+
+[node name="LawnObjects" type="Node2D" parent="Ysort" unique_id=157945504]
+y_sort_enabled = true
 
 [node name="sunCounter" type="Node2D" parent="." unique_id=1649239124]
 position = Vector2(1260, 540)

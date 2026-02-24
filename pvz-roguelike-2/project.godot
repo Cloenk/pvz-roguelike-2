@@ -32,6 +32,7 @@ folder_colors={
 "res://Components/": "yellow",
 "res://GameScenes/": "orange",
 "res://Globals/": "pink",
+"res://LawnObjects/": "gray",
 "res://assets/": "red",
 "res://plants/": "green",
 "res://zombies/": "purple"

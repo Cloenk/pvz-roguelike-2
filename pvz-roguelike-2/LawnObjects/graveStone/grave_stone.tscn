@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cpksb545pf7aa"]
+
+[ext_resource type="Script" uid="uid://dbseaxv83dvcb" path="res://LawnObjects/lawnObject.gd" id="1_1b6sb"]
+[ext_resource type="Script" uid="uid://o7uvrt8a4nn3" path="res://Components/Damage/damage.gd" id="2_qebkm"]
+[ext_resource type="Texture2D" uid="uid://biiq3kvul2ky5" path="res://assets/lawnObjects/graveStone/graveStone1Full.png" id="2_rm1ha"]
+[ext_resource type="PackedScene" uid="uid://d111gpn64yfb8" path="res://Components/hitBoxes/BigHitBox.tscn" id="4_nmhtn"]
+
+[node name="GraveStone" type="Node2D" unique_id=1749296117]
+script = ExtResource("1_1b6sb")
+metadata/_custom_type_script = "uid://dbseaxv83dvcb"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=934494688]
+position = Vector2(0, -5)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_rm1ha")
+
+[node name="Damage" type="Area2D" parent="." unique_id=672469262 node_paths=PackedStringArray("host")]
+script = ExtResource("2_qebkm")
+host = NodePath("..")
+team = 2
+maxHp = 50.0
+metadata/_custom_type_script = "uid://o7uvrt8a4nn3"
+
+[node name="CollisionShape2D" parent="Damage" unique_id=1295104235 instance=ExtResource("4_nmhtn")]
