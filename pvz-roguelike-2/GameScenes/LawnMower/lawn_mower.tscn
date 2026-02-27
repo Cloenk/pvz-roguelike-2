@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b5erirs3ve53"]
+
+[ext_resource type="Script" uid="uid://con2fmwcl1nk6" path="res://GameScenes/LawnMower/lawn_mower.gd" id="1_7vtoq"]
+[ext_resource type="Texture2D" uid="uid://cvkl2xrr6x4ec" path="res://assets/Lawn/LawnMower/LawnMower.png" id="2_7vtoq"]
+[ext_resource type="PackedScene" uid="uid://bqk0x2nw2mke3" path="res://Components/targeting/targeting.tscn" id="2_iewpu"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7vtoq"]
+
+[sub_resource type="Gradient" id="Gradient_yh804"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.1764706)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7qrxy"]
+gradient = SubResource("Gradient_yh804")
+
+[node name="LawnMower" type="CharacterBody2D" unique_id=549871601]
+script = ExtResource("1_7vtoq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1753324195]
+position = Vector2(0, 24.437508)
+scale = Vector2(118.133804, 56.875008)
+mesh = SubResource("SphereMesh_7vtoq")
+texture = SubResource("GradientTexture1D_7qrxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=852994839]
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_7vtoq")
+
+[node name="Targeting" parent="." unique_id=1908822521 node_paths=PackedStringArray("targetRayCast") instance=ExtResource("2_iewpu")]
+targetRayCast = NodePath("RayCast2D")
+targetGroups = Array[String](["Zombies", "Neutral"])
+
+[node name="RayCast2D" type="RayCast2D" parent="Targeting" unique_id=2115078743]
+target_position = Vector2(66, 0)

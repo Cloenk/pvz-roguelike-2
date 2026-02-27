@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bofy0bqqeqj8c" path="res://assets/Lawn/sunUI.png" id="2_emnf4"]
 [ext_resource type="Texture2D" uid="uid://dp6y4ghv1f0cs" path="res://assets/Lawn/Sun/sunFull.png" id="3_34oce"]
 [ext_resource type="Texture2D" uid="uid://b53666nxujmls" path="res://assets/Lawn/NewLawn.png" id="3_l8dou"]
+[ext_resource type="PackedScene" uid="uid://b5erirs3ve53" path="res://GameScenes/LawnMower/lawn_mower.tscn" id="3_tg6ok"]
 [ext_resource type="PackedScene" uid="uid://8my1nby50qrx" path="res://GameScenes/SeedSlots/seed_slot.tscn" id="3_vf0vs"]
 [ext_resource type="Texture2D" uid="uid://cry5x60wdcfi6" path="res://assets/Lawn/Tiles.png" id="4_l8dou"]
 [ext_resource type="Resource" uid="uid://b5vfkjqtsqtdt" path="res://plants/peashooter/peaShooter.tres" id="4_t8b58"]
@@ -80,6 +81,23 @@ y_sort_enabled = true
 
 [node name="LawnObjects" type="Node2D" parent="Ysort" unique_id=157945504]
 y_sort_enabled = true
+
+[node name="LawnMowers" type="Node2D" parent="Ysort" unique_id=567799014]
+
+[node name="LawnMower" parent="Ysort/LawnMowers" unique_id=549871601 instance=ExtResource("3_tg6ok")]
+position = Vector2(362, 256)
+
+[node name="LawnMower2" parent="Ysort/LawnMowers" unique_id=1418038531 instance=ExtResource("3_tg6ok")]
+position = Vector2(362, 430)
+
+[node name="LawnMower3" parent="Ysort/LawnMowers" unique_id=374834992 instance=ExtResource("3_tg6ok")]
+position = Vector2(362, 613)
+
+[node name="LawnMower4" parent="Ysort/LawnMowers" unique_id=2039092185 instance=ExtResource("3_tg6ok")]
+position = Vector2(362, 780)
+
+[node name="LawnMower5" parent="Ysort/LawnMowers" unique_id=298441529 instance=ExtResource("3_tg6ok")]
+position = Vector2(362, 948)
 
 [node name="sunCounter" type="Node2D" parent="." unique_id=1649239124]
 position = Vector2(1260, 540)
