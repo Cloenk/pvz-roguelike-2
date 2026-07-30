@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cumoee5don4ik"]
 
-[ext_resource type="Script" uid="uid://cbg38fxbsbrd" path="res://plants/Plant.gd" id="1_fv1s7"]
+[ext_resource type="Script" uid="uid://cc3ed0sydo1qk" path="res://plants/sunflower/sunflower.gd" id="1_c5n6l"]
 [ext_resource type="PackedScene" uid="uid://8mu2amqhspdp" path="res://Components/Damage/damage.tscn" id="2_1k0uc"]
+[ext_resource type="Resource" uid="uid://cnkgtmc0uaiw0" path="res://plants/sunflower/sunflower.tres" id="2_c5n6l"]
 [ext_resource type="Texture2D" uid="uid://dsipru3uded37" path="res://assets/Plants/sunflower/sunflower.png" id="3_1k0uc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtat5"]
@@ -78,14 +79,139 @@ _data = {
 &"RESET": SubResource("Animation_nm25g")
 }
 
+[sub_resource type="Animation" id="Animation_mtat5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.40000153, -9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.6, 3.6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c5n6l"]
+resource_name = "jump"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1.1, 1.15, 1.5),
+"transitions": PackedFloat32Array(-2, 0.3535535, 2.8284266, 1, -2, 0),
+"update": 0,
+"values": [Vector2(-0.40000153, -9), Vector2(1, 12), Vector2(-2, -83.54), Vector2(-0.40000153, -9), Vector2(1, 22.695), Vector2(-0.40000153, -9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1.1, 1.15, 1.5),
+"transitions": PackedFloat32Array(-2, 0.3535535, 2.8284266, 1, -2, 0),
+"update": 0,
+"values": [Vector2(3.6, 3.6), Vector2(4.4, 3), Vector2(2.59, 4), Vector2(3.6, 3.6), Vector2(4.4, 2.052), Vector2(3.6, 3.6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1.1),
+"transitions": PackedFloat32Array(1, 0.3535535, 0.3535535, 2.8284266),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.6313726, 0, 1), Color(1, 0.6313726, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 0.65000004, 0.8, 0.95, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(-1, 1), Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawnSun"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mtat5"]
+_data = {
+&"RESET": SubResource("Animation_mtat5"),
+&"jump": SubResource("Animation_c5n6l")
+}
+
 [node name="sunflower" type="Node2D" unique_id=382599832 node_paths=PackedStringArray("idleAnimation", "collisionBox")]
-script = ExtResource("1_fv1s7")
+script = ExtResource("1_c5n6l")
+plantResource = ExtResource("2_c5n6l")
 idleAnimation = NodePath("AnimationPlayer")
 collisionBox = NodePath("Damage/CollisionShape2D")
 metadata/_custom_type_script = "uid://cbg38fxbsbrd"
 
 [node name="Damage" parent="." unique_id=1780106425 node_paths=PackedStringArray("host") instance=ExtResource("2_1k0uc")]
-host = NodePath("")
+host = NodePath("..")
 maxHp = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage" unique_id=1285417129]
@@ -106,8 +232,17 @@ scale = Vector2(3.6, 3.6)
 texture = ExtResource("3_1k0uc")
 
 [node name="ShootMarker" type="Marker2D" parent="Visuals/Sprite2D" unique_id=1102479836]
-position = Vector2(7.88889, -10.833334)
+position = Vector2(0.111111164, -11.388889)
 scale = Vector2(0.2777778, 0.2777778)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=197397418]
 libraries/ = SubResource("AnimationLibrary_1k0uc")
+
+[node name="flower jump" type="AnimationPlayer" parent="." unique_id=1461381531]
+libraries/ = SubResource("AnimationLibrary_mtat5")
+
+[node name="JumpTimer" type="Timer" parent="." unique_id=956626061]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="JumpTimer" to="." method="startGivingSun"]

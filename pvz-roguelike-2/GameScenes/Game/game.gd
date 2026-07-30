@@ -1,4 +1,5 @@
 extends Node2D
+class_name Game
 
 @onready var sunScene: PackedScene = preload("res://GameScenes/Sun/sun.tscn")
 
@@ -14,6 +15,7 @@ var displayedSun = 0.0
 var fastForwardEnabled = false
 
 func _ready() -> void:
+	GlobalGame.game = self
 	GlobalGame.plants = plants
 	GlobalGame.zombies = zombies
 	GlobalGame.projectiles = projectiles

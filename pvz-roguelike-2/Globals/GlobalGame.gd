@@ -9,6 +9,7 @@ var plants
 var zombies
 var projectiles
 var lawn: Lawn
+var game: Game
 
 func spawnHitParticles(pos:Vector2,color:Color):
 	var particles = hitParticlesScene.instantiate()

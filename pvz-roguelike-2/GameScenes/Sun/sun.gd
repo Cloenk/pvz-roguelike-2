@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 var hasBeenCollected: bool = false
 var isFromSky: bool = false
+var isFromFlower: bool = false
 
 func _process(delta: float) -> void:
 	back.rotation += 1*delta
@@ -19,6 +20,14 @@ func _process(delta: float) -> void:
 			collect()
 	if isFromSky and !hasBeenCollected:
 		global_position.y += 100 * delta
+	if isFromFlower and !hasBeenCollected:
+		velocity.y += 1000 * delta
+	move_and_slide()
+
+func spawnFromFlower():
+	velocity = Vector2(randi_range(-100,100),randi_range(-500,-600))
+	isFromFlower = true
+	stop_timer.start(1.3)
 
 func fallFromSky():
 	isFromSky = true
@@ -32,3 +41,5 @@ func collect():
 
 func _on_stop_timer_timeout() -> void:
 	isFromSky = false
+	isFromFlower = false
+	velocity = Vector2.ZERO
