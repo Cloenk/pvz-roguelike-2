@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://cnkgtmc0uaiw0"]
+
+[ext_resource type="PackedScene" uid="uid://cumoee5don4ik" path="res://plants/sunflower/sunflower.tscn" id="1_70jrp"]
+[ext_resource type="Script" uid="uid://cwcecm06a0yca" path="res://plants/plantResource.gd" id="1_m1a5b"]
+
+[resource]
+script = ExtResource("1_m1a5b")
+name = "sunflower"
+sunCost = 50
+rechargeTime = 2.5
+scene = ExtResource("1_70jrp")
+metadata/_custom_type_script = "uid://cwcecm06a0yca"

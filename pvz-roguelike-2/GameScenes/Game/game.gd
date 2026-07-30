@@ -18,7 +18,7 @@ func _ready() -> void:
 	GlobalGame.zombies = zombies
 	GlobalGame.projectiles = projectiles
 	GlobalGame.lawn = lawn
-	startLevel()	
+	startLevel()
 
 func startLevel():
 	sun_timer.start(randf_range(9,11))
